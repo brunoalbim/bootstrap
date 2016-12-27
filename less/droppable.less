@@ -1,3 +1,5 @@
+@slideSpeed: .3s;
+@fadeSpeed: .5s;
 
 .droppable {
   position: relative;
@@ -20,18 +22,18 @@
   position: absolute;
   top: 0;
   left: 0;
-  display: none;
+  display: flex;
   width: 100%;
   height: 100%;
   align-items: center;
   justify-content: center;
   padding: inherit;
-  transition: transform .3s ease;
+  transition: transform @slideSpeed ease;
 }
 .droppable-card-content {
   max-width: 100%;
-  opacity: 1;
-  transition: opacity .5s linear;
+  opacity: 0;
+  transition: opacity @fadeSpeed linear;
 }
 .droppable-dropping {
   border-color: @input-border-focus !important;
@@ -70,7 +72,7 @@
 .droppable-dropping .droppable-dropping-card {
   display: flex;
 }
-
+/*
 // Processing hidden by default
 .droppable-processing-card {
   display: none;
@@ -122,6 +124,68 @@
     opacity: 0;
   }
 }
+*/
+
+
+.droppable-default-card {
+  opacity: 1;
+  transform: translateX(0);
+  .droppable-dropping & {
+    transform: translateX(0);
+  }
+  .droppable-capture &,
+  .droppable-processing &,
+  .droppable-complete & {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+.droppable-dropping-card {
+  display: none;
+  .droppable-dropping & {
+    display: flex;
+  }
+}
+.droppable-processing-card {
+  transform: translateX(100%);
+  .droppable-dropping &,
+  .droppable-processing & {
+    transform: translateX(0);
+  }
+  // We need to cancel the transition when going from droppable to processing
+  .droppable-dropping & {
+    transition: none;
+  }
+  .droppable-complete & {
+    transform: translateX(-100%);
+  }
+}
+.droppable-capture-card {
+  transform: translateX(100%);
+  .droppable-capture & {
+    transform: translateX(0);
+  }
+  .droppable-processing &,
+  .droppable-complete & {
+    transform: translateX(-100%);
+  }
+}
+.droppable-complete-card {
+  transform: translateX(100%);
+  .droppable-complete & {
+    transform: translateX(0);
+  }
+}
+.droppable-default-card .droppable-card-content,
+.droppable-dropping .droppable-dropping-card .droppable-card-content,
+.droppable-capture .droppable-capture-card .droppable-card-content,
+.droppable-processing .droppable-processing-card .droppable-card-content,
+.droppable-complete .droppable-complete-card .droppable-card-content {
+  opacity: 1;
+}
+
+
+
 /***** End card variants *****/
 
 

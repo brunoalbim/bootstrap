@@ -202,7 +202,12 @@
         </div>
       </div>
     </div>
-    <div class="droppable-processing-card droppable-card">
+    <div class="droppable-capture-card droppable-card" style="background-color: green;">
+      <div class="droppable-card-content">
+        <h4 class="m-b-2">Capture</h4>
+      </div>
+    </div>
+    <div class="droppable-processing-card droppable-card" style="background-color: blue;">
       <div class="droppable-card-content">
         <h4 class="m-b-2">Uploading</h4>
         <div>
@@ -221,7 +226,7 @@
         </div>
       </div>
     </div>
-    <div class="droppable-complete-card droppable-card">
+    <div class="droppable-complete-card droppable-card" style="background-color: red;">
       <div class="droppable-card-content">
         <h4 class="m-b-2">Upload complete!</h4>
         <img src="/assets/img/css2-bg.jpg" alt="uploaded" class="thumbnail m-b-3" />
@@ -237,19 +242,23 @@
   <div class="btn-group" data-toggle="buttons">
     <label class="btn btn-primary active">
       <input type="radio" name="options" id="option1" autocomplete="off" checked
-        onchange="$('#droppable-live-example').removeClass('droppable-dropping droppable-processing droppable-complete'); $('#droppable-state-label').text('');"> Default
+        onchange="$('#droppable-live-example').removeClass('droppable-dropping droppable-capture droppable-processing droppable-complete'); $('#droppable-state-label').text('');"> Default
     </label>
     <label class="btn btn-primary">
       <input type="radio" name="options" id="option2" autocomplete="off"
-        onchange="$('#droppable-live-example').addClass('droppable-dropping').removeClass('droppable-processing droppable-complete'); $('#droppable-state-label').text(' droppable-dropping');"> Dropping
+        onchange="$('#droppable-live-example').addClass('droppable-dropping').removeClass('droppable-capture droppable-processing droppable-complete'); $('#droppable-state-label').text(' droppable-dropping');"> Dropping
     </label>
     <label class="btn btn-primary">
       <input type="radio" name="options" id="option3" autocomplete="off"
-        onchange="$('#droppable-live-example').addClass('droppable-processing').removeClass('droppable-dropping droppable-complete'); $('#droppable-state-label').text(' droppable-processing');"> Processing
+        onchange="$('#droppable-live-example').addClass('droppable-capture').removeClass('droppable-dropping droppable-processing droppable-complete'); $('#droppable-state-label').text(' droppable-capture');"> Capture
     </label>
     <label class="btn btn-primary">
       <input type="radio" name="options" id="option4" autocomplete="off"
-        onchange="$('#droppable-live-example').addClass('droppable-complete').removeClass('droppable-dropping droppable-processing'); $('#droppable-state-label').text(' droppable-complete');"> Complete
+        onchange="$('#droppable-live-example').addClass('droppable-processing').removeClass('droppable-dropping droppable-capture droppable-complete'); $('#droppable-state-label').text(' droppable-processing');"> Processing
+    </label>
+    <label class="btn btn-primary">
+      <input type="radio" name="options" id="option5" autocomplete="off"
+        onchange="$('#droppable-live-example').addClass('droppable-complete').removeClass('droppable-dropping droppable-capture droppable-processing'); $('#droppable-state-label').text(' droppable-complete');"> Complete
     </label>
   </div>
 </div>
@@ -257,50 +266,12 @@
 &lt;div class="droppable droppable-lg<span id='droppable-state-label'></span>"&gt;
   &lt;div class="droppable-default-card droppable-card"&gt;...&lt;/div&gt;
   &lt;div class="droppable-dropping-card droppable-card"&gt;...&lt;/div&gt;
+  &lt;div class="droppable-capture-card droppable-card"&gt;...&lt;/div&gt;
   &lt;div class="droppable-processing-card droppable-card"&gt;...&lt;/div&gt;
   &lt;div class="droppable-complete-card droppable-card"&gt;...&lt;/div&gt;
 &lt;/div&gt;
 </pre>
-<!--
-  <h2 id="droppable-mobile">Mobile behaviour</h2>
-  <p>Typically, mobile devices will not have drag and drop capabilities, so we
-    should customise messaging to those users and give an alternative option.</p>
-  <p>We have two classes to help show and hide content in the different scenarios,
-      anything inside <code>.droppable-mobile</code> will only be visible on
-      mobile screen widths.  Anything inside <code>.droppable-desktop</code> will
-      only appear on larger screens.</p>
 
-  <div class="bs-example" data-example-id="droppable-mobile-example">
-    <div class="droppable droppable-md">
-      <div class="m-b-2">
-        <i class="icon icon-upload icon-xxl"></i>
-      </div>
-      <div class="droppable-desktop">
-        <p class="m-b-2">Drag and drop a .CSV file less than 5MB</p>
-        <button class="btn btn-primary">Or select file</button>
-      </div>
-      <div class="droppable-mobile">
-        <p class="m-b-2">Upload .CSV file less than 5MB</p>
-        <button class="btn btn-primary">Select file</button>
-      </div>
-    </div>
-  </div>
-{% highlight html %}
-<div class="droppable droppable-md">
-  <div class="m-b-2">
-    <i class="icon icon-upload icon-xxl"></i>
-  </div>
-  <div class="droppable-desktop">
-    <p class="m-b-2">Drag and drop a .CSV file less than 5MB</p>
-    <button class="btn btn-primary">Or select file</button>
-  </div>
-  <div class="droppable-mobile">
-    <p class="m-b-2">Upload .CSV file less than 5MB</p>
-    <button class="btn btn-primary">Select file</button>
-  </div>
-</div>
-{% endhighlight %}
--->
 <h2 id="droppable-sizes">Size variants</h2>
 <p>Depending on the column you are using your droppable component within, you may
     wish to use a different size variant.  Full width UIs will likely use the
