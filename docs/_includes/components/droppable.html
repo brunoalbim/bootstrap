@@ -184,81 +184,108 @@
     in and out with appropriate transitions.</p>
 
 <div class="bs-example" data-example-id="droppable-states-example">
-  <div class="droppable droppable-lg" id="droppable-live-example">
-    <div class="droppable-default-card">
-      <div class="droppable-card-content">
-        <div class="m-b-2">
-          <i class="icon icon-upload icon-xxl"></i>
+  <div class="droppable droppable-default droppable-lg" id="droppable-live-example">
+    <div class="droppable-content">
+      <div class="droppable-default-card droppable-card">
+        <div class="droppable-card-content">
+          <div class="m-b-2">
+            <i class="icon icon-upload icon-xxl"></i>
+          </div>
+          <p class="m-b-2">Drag and drop a .CSV file less than 5MB</p>
+          <div class="btn-group">
+            <label class="btn btn-primary m-b-2">
+              <i class="icon icon-pdf"></i>Or select file
+              <input type="file" capture="camera"
+                accept="" class="tw-droppable-input hidden" name="file-upload" />
+            </label>
+            <button type="button" class="btn btn-primary"
+              onclick="$('#droppable-live-example').addClass('droppable-capture').removeClass('droppable-default droppable-dropping droppable-processing droppable-complete'); $('#droppable-state-label').text(' droppable-capture');">
+              <i class="icon icon-camera m-r-0"></i>
+            </button>
+          </div>
         </div>
-        <p class="m-b-2">Drag and drop a .CSV file less than 5MB</p>
-        <button class="btn btn-primary">Or select file</button>
       </div>
-    </div>
-    <div class="droppable-dropping-card droppable-card">
-      <div class="droppable-card-content">
-        <h4 class="m-b-2">Drop file to start upload</h4>
-        <div class="circle circle-sm">
-          <i class="icon icon-add"></i>
+      <div class="droppable-dropping-card droppable-card">
+        <div class="droppable-card-content">
+          <h4 class="m-b-2">Drop file to start upload</h4>
+          <div class="circle circle-sm">
+            <i class="icon icon-add"></i>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="droppable-capture-card droppable-card" style="background-color: green;">
-      <div class="droppable-card-content">
-        <h4 class="m-b-2">Capture</h4>
+      <div class="droppable-capture-card droppable-card">
+        <div class="droppable-card-content">
+          <div class="tw-dropppable-responsive-video">
+            <div class="embed-responsive embed-responsive-16by9">
+              <img src="/assets/img/css2-bg.jpg" alt="capture" class="" />
+            </div>
+          </div>
+          <div class="text-xs-center m-t-2">
+            <button type="button" class="btn btn-primary"
+              onclick="$('#droppable-live-example').addClass('droppable-processing').removeClass('droppable-default droppable-dropping droppable-capture droppable-complete'); $('#droppable-state-label').text(' droppable-processing');">
+              <i class="icon icon-camera m-r-0"></i>
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="droppable-processing-card droppable-card" style="background-color: blue;">
-      <div class="droppable-card-content">
-        <h4 class="m-b-2">Uploading</h4>
-        <div>
-        <span class='process process-sm'>
-          <span class='process-icon-container'>
-            <span class='process-icon-horizontal'></span>
-            <span class='process-icon-vertical'></span>
+      <div class="droppable-processing-card droppable-card">
+        <div class="droppable-card-content">
+          <h4 class="m-b-2">Uploading</h4>
+          <div>
+          <span class='process process-sm'>
+            <span class='process-icon-container'>
+              <span class='process-icon-horizontal'></span>
+              <span class='process-icon-vertical'></span>
+            </span>
+            <svg version='1.1'
+              xmlns='http://www.w3.org/2000/svg'
+              xml:space='preserve'>
+              <circle class='process-circle' cx='50%' cy='50%' r='45%'
+                fill-opacity='0.0' />
+            </svg>
           </span>
-          <svg version='1.1'
-            xmlns='http://www.w3.org/2000/svg'
-            xml:space='preserve'>
-            <circle class='process-circle' cx='50%' cy='50%' r='45%'
-              fill-opacity='0.0' />
-          </svg>
-        </span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="droppable-complete-card droppable-card" style="background-color: red;">
-      <div class="droppable-card-content">
-        <h4 class="m-b-2">Upload complete!</h4>
-        <img src="/assets/img/css2-bg.jpg" alt="uploaded" class="thumbnail m-b-3" />
-        <p class="text-ellipsis m-b-2">css.png</p>
-        <p class="m-t-2 m-b-0">
-          <a href="">Choose a different file?</a>
-        </p>
+      <div class="droppable-complete-card droppable-card">
+        <div class="droppable-card-content">
+          <h4 class="m-b-2">Upload complete!</h4>
+          <img src="/assets/img/css2-bg.jpg" alt="uploaded" class="thumbnail m-b-3" />
+          <p class="text-ellipsis m-b-2">css.png</p>
+          <p class="m-t-2 m-b-0">
+            <a href="">Choose a different file?</a>
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<div class="m-x-auto text-xs-center m-b-3">
+<div class="m-x-auto text-xs-center m-y-3">
   <div class="btn-group" data-toggle="buttons">
     <label class="btn btn-primary active">
       <input type="radio" name="options" id="option1" autocomplete="off" checked
-        onchange="$('#droppable-live-example').removeClass('droppable-dropping droppable-capture droppable-processing droppable-complete'); $('#droppable-state-label').text('');"> Default
+        onchange="$('#droppable-live-example').addClass('droppable-default').removeClass('droppable-dropping droppable-capture droppable-processing droppable-complete'); $('#droppable-state-label').text('droppable-default');">
+        Default
     </label>
     <label class="btn btn-primary">
       <input type="radio" name="options" id="option2" autocomplete="off"
-        onchange="$('#droppable-live-example').addClass('droppable-dropping').removeClass('droppable-capture droppable-processing droppable-complete'); $('#droppable-state-label').text(' droppable-dropping');"> Dropping
+        onchange="$('#droppable-live-example').addClass('droppable-dropping').removeClass(''); $('#droppable-state-label').text(' droppable-dropping');">
+        Dropping
     </label>
     <label class="btn btn-primary">
       <input type="radio" name="options" id="option3" autocomplete="off"
-        onchange="$('#droppable-live-example').addClass('droppable-capture').removeClass('droppable-dropping droppable-processing droppable-complete'); $('#droppable-state-label').text(' droppable-capture');"> Capture
+        onchange="$('#droppable-live-example').addClass('droppable-capture').removeClass('droppable-default droppable-dropping droppable-processing droppable-complete'); $('#droppable-state-label').text(' droppable-capture');">
+        Capture
     </label>
     <label class="btn btn-primary">
       <input type="radio" name="options" id="option4" autocomplete="off"
-        onchange="$('#droppable-live-example').addClass('droppable-processing').removeClass('droppable-dropping droppable-capture droppable-complete'); $('#droppable-state-label').text(' droppable-processing');"> Processing
+        onchange="$('#droppable-live-example').addClass('droppable-processing').removeClass('droppable-default droppable-dropping droppable-capture droppable-complete'); $('#droppable-state-label').text(' droppable-processing');">
+        Processing
     </label>
     <label class="btn btn-primary">
       <input type="radio" name="options" id="option5" autocomplete="off"
-        onchange="$('#droppable-live-example').addClass('droppable-complete').removeClass('droppable-dropping droppable-capture droppable-processing'); $('#droppable-state-label').text(' droppable-complete');"> Complete
+        onchange="$('#droppable-live-example').addClass('droppable-complete').removeClass('droppable-dropping droppable-capture droppable-processing'); $('#droppable-state-label').text(' droppable-complete');">
+        Complete
     </label>
   </div>
 </div>
