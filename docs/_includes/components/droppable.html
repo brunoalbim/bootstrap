@@ -199,17 +199,9 @@
                 accept="" class="tw-droppable-input hidden" name="file-upload" />
             </label>
             <button type="button" class="btn btn-primary"
-              onclick="$('#droppable-live-example').addClass('droppable-capture').removeClass('droppable-default droppable-dropping droppable-processing droppable-complete'); $('#droppable-state-label').text(' droppable-capture');">
+              onclick="droppableReset(); droppableState('capture');">
               <i class="icon icon-camera m-r-0"></i>
             </button>
-          </div>
-        </div>
-      </div>
-      <div class="droppable-dropping-card droppable-card">
-        <div class="droppable-card-content">
-          <h4 class="m-b-2">Drop file to start upload</h4>
-          <div class="circle circle-sm">
-            <i class="icon icon-add"></i>
           </div>
         </div>
       </div>
@@ -222,7 +214,7 @@
           </div>
           <div class="text-xs-center m-t-2">
             <button type="button" class="btn btn-primary"
-              onclick="$('#droppable-live-example').addClass('droppable-processing').removeClass('droppable-default droppable-dropping droppable-capture droppable-complete'); $('#droppable-state-label').text(' droppable-processing');">
+              onclick="droppableReset(); droppableState('processing');">
               <i class="icon icon-camera m-r-0"></i>
             </button>
           </div>
@@ -258,33 +250,77 @@
         </div>
       </div>
     </div>
+    <div class="droppable-dropping-card droppable-card">
+      <div class="droppable-card-content">
+        <h4 class="m-b-2">Drop file to start upload</h4>
+        <div class="circle circle-sm">
+          <i class="icon icon-add"></i>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+<script type="text/javascript">
+  function droppableReset() {
+    $('#droppable-live-example')
+      .removeClass('droppable-default droppable-dropping droppable-capture droppable-processing droppable-complete');
+    $('.droppable-state-button').removeAttr('disabled');
+    $('.droppable-state-label').removeClass('disabled').removeAttr('disabled');
+  }
+  function droppableState(state) {
+    switch(state) {
+      case 'default':
+        $('#droppable-processing-button, #droppable-complete-button').attr('disabled', true);
+        $('#droppable-processing-label, #droppable-complete-label').attr('disabled', true).addClass('disabled');
+        break;
+      case 'dropping':
+        $('#droppable-capture-button, #droppable-complete-button').attr('disabled', true);
+        $('#droppable-capture-label, #droppable-complete-label').attr('disabled', true).addClass('disabled');
+        break;
+      case 'capture':
+        $('#droppable-default-button, #droppable-complete-button').attr('disabled', true);
+        $('#droppable-default-label, #droppable-complete-label').attr('disabled', true).addClass('disabled');
+        break;
+      case 'processing':
+        $('#droppable-default-button, #droppable-capture-button').attr('disabled', true);
+        $('#droppable-default-label, #droppable-capture-label').attr('disabled', true).addClass('disabled');
+        break;
+      case 'complete':
+        $('#droppable-capture-button, #droppable-processing-button').attr('disabled', true);
+        $('#droppable-capture-label, #droppable-processing-label').attr('disabled', true).addClass('disabled');
+        break;
+    }
+    $('#droppable-live-example').addClass('droppable-' + state);
+    $('#droppable-state-label').text(' droppable-' + state);
+  }
+  // $('#droppable-live-example').addClass('droppable-dropping').removeClass(''); $('#droppable-state-label').text(' droppable-dropping');
+  // $('#droppable-live-example').addClass('droppable-default').removeClass('droppable-dropping droppable-capture droppable-processing droppable-complete'); $('#droppable-state-label').text('droppable-default');
+</script>
 <div class="m-x-auto text-xs-center m-y-3">
   <div class="btn-group" data-toggle="buttons">
-    <label class="btn btn-primary active">
-      <input type="radio" name="options" id="option1" autocomplete="off" checked
-        onchange="$('#droppable-live-example').addClass('droppable-default').removeClass('droppable-dropping droppable-capture droppable-processing droppable-complete'); $('#droppable-state-label').text('droppable-default');">
+    <label class="btn btn-primary active droppable-state-label" id="droppable-default-label">
+      <input type="radio" name="droppable-state" id="droppable-default-button" class="droppable-state-button" autocomplete="off" checked
+        onchange="droppableReset(); droppableState('default');">
         Default
     </label>
-    <label class="btn btn-primary">
-      <input type="radio" name="options" id="option2" autocomplete="off"
-        onchange="$('#droppable-live-example').addClass('droppable-dropping').removeClass(''); $('#droppable-state-label').text(' droppable-dropping');">
+    <label class="btn btn-primary droppable-state-label" id="droppable-dropping-label">
+      <input type="radio" name="droppable-state" id="droppable-dropping-button" class="droppable-state-button" autocomplete="off"
+        onchange="droppableReset(); droppableState('dropping');">
         Dropping
     </label>
-    <label class="btn btn-primary">
-      <input type="radio" name="options" id="option3" autocomplete="off"
-        onchange="$('#droppable-live-example').addClass('droppable-capture').removeClass('droppable-default droppable-dropping droppable-processing droppable-complete'); $('#droppable-state-label').text(' droppable-capture');">
+    <label class="btn btn-primary droppable-state-label" id="droppable-capture-label">
+      <input type="radio" name="droppable-state" id="droppable-capture-button" class="droppable-state-button" autocomplete="off"
+        onchange="droppableReset(); droppableState('capture');">
         Capture
     </label>
-    <label class="btn btn-primary">
-      <input type="radio" name="options" id="option4" autocomplete="off"
-        onchange="$('#droppable-live-example').addClass('droppable-processing').removeClass('droppable-default droppable-dropping droppable-capture droppable-complete'); $('#droppable-state-label').text(' droppable-processing');">
+    <label class="btn btn-primary droppable-state-label" id="droppable-processing-label">
+      <input type="radio" name="droppable-state" id="droppable-processing-button" class="droppable-state-button" autocomplete="off"
+        onchange="droppableReset(); droppableState('processing');">
         Processing
     </label>
-    <label class="btn btn-primary">
-      <input type="radio" name="options" id="option5" autocomplete="off"
-        onchange="$('#droppable-live-example').addClass('droppable-complete').removeClass('droppable-dropping droppable-capture droppable-processing'); $('#droppable-state-label').text(' droppable-complete');">
+    <label class="btn btn-primary droppable-state-label" id="droppable-complete-label">
+      <input type="radio" name="droppable-state" id="droppable-complete-button" class="droppable-state-button" autocomplete="off"
+        onchange="droppableReset(); droppableState('complete');">
         Complete
     </label>
   </div>
