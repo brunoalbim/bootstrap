@@ -45,12 +45,13 @@
 					'hidden-md': $index > 1 && $ctrl.buttons.length !== 3,
 					'hidden-lg': $index > 1 && $ctrl.buttons.length !== 3,
 					'hidden-xl': $index > 2 && $ctrl.buttons.length !== 4,
+					'm-b-0': $index === 0
 				}">
 				{{button.label}}
 			</button>
 
 			<!-- Collapsed dropdown button when we have too many -->
-			<div ng-if="$ctrl.buttons.length > 1" class="btn-group m-b-0"
+			<div ng-if="$ctrl.buttons.length > 2" class="btn-group m-b-0"
 				ng-class="{
 					'btn-block': $ctrl.buttons.length > 1,
 					'visible-sm-inline-block': $ctrl.buttons.length > 2,
