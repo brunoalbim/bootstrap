@@ -9502,6 +9502,27 @@ button.close {
   background-color: #fff;
   border-color: #fff;
 }
+.tile-primary {
+  color: #dbf0fd;
+  background-color: #2e4369;
+  border-color: #253655;
+}
+.tile-primary h3,
+.tile-primary h4,
+.tile-primary h5,
+.tile-primary h6,
+.tile-primary .h3,
+.tile-primary .h4,
+.tile-primary .h5,
+.tile-primary .h6 {
+  color: #fff;
+}
+.tile-primary .circle {
+  background-color: #253655 !important;
+}
+.tile-primary hr {
+  border-color: #253655;
+}
 /* Backwards compaibility for early tile implementation */
 .tile-row {
   display: -webkit-box;
@@ -12272,9 +12293,9 @@ a.circle.active:hover {
 }
 @media (min-width: 768px) {
   .sequence-info.sequence-inverse > .active:after {
-    background: -webkit-linear-gradient(#00b9ff 0, #00b9ff 16px, #e2e6e8 16px, #e2e6e8 100%);
-    background:      -o-linear-gradient(#00b9ff 0, #00b9ff 16px, #e2e6e8 16px, #e2e6e8 100%);
-    background:         linear-gradient(#00b9ff 0, #00b9ff 16px, #e2e6e8 16px, #e2e6e8 100%);
+    background: -webkit-linear-gradient(#00b9ff 0, #00b9ff 16px, #253655 16px, #253655 100%);
+    background:      -o-linear-gradient(#00b9ff 0, #00b9ff 16px, #253655 16px, #253655 100%);
+    background:         linear-gradient(#00b9ff 0, #00b9ff 16px, #253655 16px, #253655 100%);
   }
 }
 @media (min-width: 768px) {
@@ -12328,9 +12349,9 @@ a.circle.active:hover {
 }
 @media (min-width: 768px) {
   .sequence-primary.sequence-inverse > .active:after {
-    background: -webkit-linear-gradient(#37517e 0, #37517e 16px, #e2e6e8 16px, #e2e6e8 100%);
-    background:      -o-linear-gradient(#37517e 0, #37517e 16px, #e2e6e8 16px, #e2e6e8 100%);
-    background:         linear-gradient(#37517e 0, #37517e 16px, #e2e6e8 16px, #e2e6e8 100%);
+    background: -webkit-linear-gradient(#37517e 0, #37517e 16px, #253655 16px, #253655 100%);
+    background:      -o-linear-gradient(#37517e 0, #37517e 16px, #253655 16px, #253655 100%);
+    background:         linear-gradient(#37517e 0, #37517e 16px, #253655 16px, #253655 100%);
   }
 }
 @media (min-width: 768px) {
@@ -12384,9 +12405,9 @@ a.circle.active:hover {
 }
 @media (min-width: 768px) {
   .sequence-success.sequence-inverse > .active:after {
-    background: -webkit-linear-gradient(#2ed06e 0, #2ed06e 16px, #e2e6e8 16px, #e2e6e8 100%);
-    background:      -o-linear-gradient(#2ed06e 0, #2ed06e 16px, #e2e6e8 16px, #e2e6e8 100%);
-    background:         linear-gradient(#2ed06e 0, #2ed06e 16px, #e2e6e8 16px, #e2e6e8 100%);
+    background: -webkit-linear-gradient(#2ed06e 0, #2ed06e 16px, #253655 16px, #253655 100%);
+    background:      -o-linear-gradient(#2ed06e 0, #2ed06e 16px, #253655 16px, #253655 100%);
+    background:         linear-gradient(#2ed06e 0, #2ed06e 16px, #253655 16px, #253655 100%);
   }
 }
 @media (min-width: 768px) {
@@ -12440,9 +12461,9 @@ a.circle.active:hover {
 }
 @media (min-width: 768px) {
   .sequence-warning.sequence-inverse > .active:after {
-    background: -webkit-linear-gradient(#ffa600 0, #ffa600 16px, #e2e6e8 16px, #e2e6e8 100%);
-    background:      -o-linear-gradient(#ffa600 0, #ffa600 16px, #e2e6e8 16px, #e2e6e8 100%);
-    background:         linear-gradient(#ffa600 0, #ffa600 16px, #e2e6e8 16px, #e2e6e8 100%);
+    background: -webkit-linear-gradient(#ffa600 0, #ffa600 16px, #253655 16px, #253655 100%);
+    background:      -o-linear-gradient(#ffa600 0, #ffa600 16px, #253655 16px, #253655 100%);
+    background:         linear-gradient(#ffa600 0, #ffa600 16px, #253655 16px, #253655 100%);
   }
 }
 @media (min-width: 768px) {
@@ -12496,9 +12517,9 @@ a.circle.active:hover {
 }
 @media (min-width: 768px) {
   .sequence-danger.sequence-inverse > .active:after {
-    background: -webkit-linear-gradient(#f53636 0, #f53636 16px, #e2e6e8 16px, #e2e6e8 100%);
-    background:      -o-linear-gradient(#f53636 0, #f53636 16px, #e2e6e8 16px, #e2e6e8 100%);
-    background:         linear-gradient(#f53636 0, #f53636 16px, #e2e6e8 16px, #e2e6e8 100%);
+    background: -webkit-linear-gradient(#f53636 0, #f53636 16px, #253655 16px, #253655 100%);
+    background:      -o-linear-gradient(#f53636 0, #f53636 16px, #253655 16px, #253655 100%);
+    background:         linear-gradient(#f53636 0, #f53636 16px, #253655 16px, #253655 100%);
   }
 }
 @media (min-width: 768px) {
