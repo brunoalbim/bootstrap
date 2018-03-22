@@ -1,4 +1,3 @@
-
 .fade-in {
   animation: fade-in .3s 0s linear forwards;
 }
@@ -9,5 +8,34 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+.ng-view-slide-animation() {
+  // by default, it's moving backward.
+  &.ng-enter, &.ng-leave {
+    transition: transform cubic-bezier(0.6, 0.2, 0.1, 1) 0.5s;
+  }
+
+  &.ng-enter {
+    transform: translateX(-100%);
+  }
+  &.ng-enter.ng-enter-active {
+    transform: none;
+  }
+  &.ng-leave.ng-leave-active {
+    transform: translateX(100%);
+  }
+
+  &--moving-forward {
+    &.ng-enter {
+      transform: translateX(100%);
+    }
+    &.ng-enter.ng-enter-active {
+      transform: none;
+    }
+    &.ng-leave.ng-leave-active {
+      transform: translateX(-100%);
+    }
   }
 }
